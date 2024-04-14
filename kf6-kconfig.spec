@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.0
+%define		kdeframever	6.1
 %define		qtver		5.15.2
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
 Name:		kf6-%{kfname}
-Version:	6.0.0
+Version:	6.1.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	294ae52167345f5d762691af6e1ade62
+# Source0-md5:	50c79892fb59a879fa929cc23f377b9c
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -108,9 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %ghost %{_libdir}/libKF6ConfigGui.so.6
 %ghost %{_libdir}/libKF6ConfigQml.so.6
 %dir %{_libdir}/qt6/qml/org/kde/config
-%{_libdir}/qt6/qml/org/kde/config/kconfigqmlplugin.qmltypes
 %{_libdir}/qt6/qml/org/kde/config/kde-qmlmodule.version
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/config/libkconfigqmlplugin.so
 %{_libdir}/qt6/qml/org/kde/config/qmldir
 %attr(755,root,root) %{_libdir}/libKF6ConfigQml.so.*.*
 %attr(755,root,root) %{_libdir}/libKF6ConfigGui.so.*.*
@@ -121,6 +119,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kconf_update
 %{_datadir}/qlogging-categories6/kconfig.categories
 %{_datadir}/qlogging-categories6/kconfig.renamecategories
+%{_libdir}/qt6/qml/org/kde/config/KF6ConfigQml.qmltypes
+%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/config/libKF6ConfigQmlplugin.so
 
 %files devel
 %defattr(644,root,root,755)
