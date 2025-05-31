@@ -7,6 +7,7 @@
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
+Summary(pl.UTF-8):	Backend do przechowywania konfiguracji aplikacji
 Name:		kf6-%{kfname}
 Version:	6.14.0
 Release:	1
@@ -42,21 +43,36 @@ parts: KConfigCore and KConfigGui.
 
 KConfigCore provides access to the configuration files themselves. It
 features:
-
 - Code generation: describe your configuration in an XML file, and use
-  `kconfig_compiler to generate classes that read and write
+  kconfig_compiler to generate classes that read and write
   configuration entries.
 - Cascading configuration files (global settings overridden by local
   settings).
-- Optional shell expansion support (see [docs/options.md](@ref
-  options)).
-- The ability to lock down configuration options (see
-  [docs/options.md](@ref options)).
+- Optional shell expansion support
+- The ability to lock down configuration options
 
 KConfigGui provides a way to hook widgets to the configuration so that
 they are automatically initialized from the configuration and
 automatically propagate their changes to their respective
 configuration files.
+
+%description -l pl.UTF-8
+KConfig udostępnia zaawansowany system konfiguracji. Składa się z
+dwóch części: KConfigCore oraz KConfigGui.
+
+KConfigCore zapewnia dostęp do samych plików konfiguracyjnych.
+Funkcjonalność:
+- generowanie kodu: wystarczy opisać konfigurację w pliku XML i użyć
+  programu kconfig_compiler, aby wygenerować klasy czytające i
+  zapisujące wpisy konfiguracji
+- kaskadowe pliki konfiguracyjne (globalne ustawienia nadpisywane
+  przez lokalne ustawienia)
+- opcjonalna obsługa dopełniania poleceń
+- możliwość zablokowania opcji konfiguracyjnych
+
+KConfigGui zapewnia sposób podpięcia widżetów do konfiguracji tak, aby
+były automatycznie inicjowane z konfiguracji i automatycznie
+propagowały zmiany do odpowiednich plików konfiguracyjnych.
 
 %package devel
 Summary:	Header files for %{kfname} development
