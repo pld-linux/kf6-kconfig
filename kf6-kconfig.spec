@@ -3,7 +3,8 @@
 %bcond_with	tests		# test suite
 
 %define		kdeframever	6.14
-%define		qt_ver		5.15.2
+%define		qt_ver		6.7.0
+%define		kf_ver		%{version}
 %define		kfname		kconfig
 
 Summary:	Backend for storing application configuration
@@ -20,10 +21,11 @@ BuildRequires:	Qt6Core-devel >= %{qt_ver}
 BuildRequires:	Qt6DBus-devel >= %{qt_ver}
 BuildRequires:	Qt6Gui-devel >= %{qt_ver}
 BuildRequires:	Qt6Qml-devel >= %{qt_ver}
-BuildRequires:	Qt6Test-devel >= %{qt_ver}
+BuildRequires:	Qt6Quick-devel >= %{qt_ver}
+%{?with_tests:BuildRequires:	Qt6Test-devel >= %{qt_ver}}
 BuildRequires:	Qt6Xml-devel >= %{qt_ver}
 BuildRequires:	cmake >= 3.16
-BuildRequires:	kf6-extra-cmake-modules >= %{kdeframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kf_ver}
 BuildRequires:	ninja
 BuildRequires:	qt6-linguist >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.736
@@ -32,9 +34,10 @@ BuildRequires:	xz
 Requires:	Qt6DBus >= %{qt_ver}
 Requires:	Qt6Gui >= %{qt_ver}
 Requires:	Qt6Qml >= %{qt_ver}
+Requires:	Qt6Quick >= %{qt_ver}
 Requires:	Qt6Xml >= %{qt_ver}
 Requires:	kf6-dirs
-#Obsoletes:	kf5-%{kfname} < %{version}
+#Obsoletes:	kf5-kconfig < 6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -83,7 +86,7 @@ Requires:	Qt6DBus-devel >= %{qtver}
 Requires:	Qt6Qml-devel >= %{qtver}
 Requires:	Qt6Xml-devel >= %{qtver}
 Requires:	cmake >= 3.16
-#Obsoletes:	kf5-%{kfname}-devel < %{version}
+#Obsoletes:	kf5-kconfig-devel < 6
 
 %description devel
 Header files for %{kfname} development.
