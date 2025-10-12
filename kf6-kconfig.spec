@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	tests		# test suite
 
-%define		kdeframever	6.18
+%define		kdeframever	6.19
 %define		qt_ver		6.7.0
 %define		kf_ver		%{version}
 %define		kfname		kconfig
@@ -10,12 +10,12 @@
 Summary:	Backend for storing application configuration
 Summary(pl.UTF-8):	Backend do przechowywania konfiguracji aplikacji
 Name:		kf6-%{kfname}
-Version:	6.18.0
+Version:	6.19.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	54933f37b9e12fbe0bcee5a41bf57112
+# Source0-md5:	cb9676fed93b5766b63eafb321510502
 URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qt_ver}
 BuildRequires:	Qt6DBus-devel >= %{qt_ver}
@@ -48,8 +48,8 @@ parts: KConfigCore and KConfigGui.
 KConfigCore provides access to the configuration files themselves. It
 features:
 - Code generation: describe your configuration in an XML file, and use
-  kconfig_compiler to generate classes that read and write
-  configuration entries.
+  kconfig_compiler to generate classes that read and write configuration
+  entries.
 - Cascading configuration files (global settings overridden by local
   settings).
 - Optional shell expansion support
@@ -131,14 +131,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kwriteconfig6
 %attr(755,root,root) %{_libexecdir}/kf6/kconf_update
 %attr(755,root,root) %{_libexecdir}/kf6/kconfig_compiler_kf6
-%attr(755,root,root) %{_libdir}/libKF6ConfigCore.so.*.*
+%{_libdir}/libKF6ConfigCore.so.*.*
 %ghost %{_libdir}/libKF6ConfigCore.so.6
-%attr(755,root,root) %{_libdir}/libKF6ConfigGui.so.*.*
+%{_libdir}/libKF6ConfigGui.so.*.*
 %ghost %{_libdir}/libKF6ConfigGui.so.6
-%attr(755,root,root) %{_libdir}/libKF6ConfigQml.so.*.*
+%{_libdir}/libKF6ConfigQml.so.*.*
 %ghost %{_libdir}/libKF6ConfigQml.so.6
 %dir %{_libdir}/qt6/qml/org/kde/config
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/config/libKF6ConfigQmlplugin.so
+%{_libdir}/qt6/qml/org/kde/config/libKF6ConfigQmlplugin.so
 %{_libdir}/qt6/qml/org/kde/config/KF6ConfigQml.qmltypes
 %{_libdir}/qt6/qml/org/kde/config/kde-qmlmodule.version
 %{_libdir}/qt6/qml/org/kde/config/qmldir
