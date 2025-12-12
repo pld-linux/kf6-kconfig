@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	tests		# test suite
 
-%define		kdeframever	6.20
+%define		kdeframever	6.21
 %define		qt_ver		6.7.0
 %define		kf_ver		%{version}
 %define		kfname		kconfig
@@ -10,12 +10,12 @@
 Summary:	Backend for storing application configuration
 Summary(pl.UTF-8):	Backend do przechowywania konfiguracji aplikacji
 Name:		kf6-%{kfname}
-Version:	6.20.0
+Version:	6.21.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	da66af528520ba6b62e6123d85073085
+# Source0-md5:	7783de91bb9abc1521973d3b102e9a3c
 URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qt_ver}
 BuildRequires:	Qt6DBus-devel >= %{qt_ver}
