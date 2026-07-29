@@ -11,7 +11,7 @@ Summary:	Backend for storing application configuration
 Summary(pl.UTF-8):	Backend do przechowywania konfiguracji aplikacji
 Name:		kf6-%{kfname}
 Version:	6.28.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -116,6 +116,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/kconf_update
 
 %ninja_install -C build
 
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{nan_TW,nan}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/nan_TW@latin
 %find_lang %{kfname}5_qt --with-qm --all-name --with-kde
 
 %clean
